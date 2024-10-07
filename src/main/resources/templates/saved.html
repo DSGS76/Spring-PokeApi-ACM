@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="" ?>
+<html xmlns:th = "http://www.thymeleaf.org" lang="EN">
+
+<head>
+    <link href="../static/css/table.css" th:href="@{/css/table.css}" rel="stylesheet" />
+    <link href="../static/css/pokemon.css" th:href="@{/css/pokemon.css}" rel="stylesheet" />
+    <!-- Varela Round -->
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="fetch-box">
+
+        <h2> Pokémon saved </h2>
+
+        <table class="styled-table">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Height (centimeters)</th>
+                    <th>Weight (hectograms)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="pokemon : ${pokesaveds}">
+                    <tr>
+                        <td th:text="${pokemon.getId()}"></td>
+                        <td th:text="${pokemon.getName()}"></td>
+                        <td th:text="${pokemon.getHeight()}"></td>
+                        <td th:text="${pokemon.getWeight()}"></td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+
+        <form action="fetcher" method="get">
+            <input type="submit" value="back to the fetcher">
+        </form>
+
+    </div>
+
+</body>
+
+</html>
