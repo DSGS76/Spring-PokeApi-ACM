@@ -1,15 +1,19 @@
 <html lang="EN">
 
-<header>
-    <h2> Welcome to the pokémon fetcher </h2>
-</header>
+<head>
+    <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+    <!-- Varela Round -->
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
 
 <main>
-        <div>
+        <div class="fetch-box">
+
+            <h2> Welcome to the Pokémon fetcher </h2>
 
             <form action="envioinfo" method="get">
 
-                <div>
+                <div class="form-group">
                     <label>
                         Name of the pokemon
                         <input type="text" name="name" required>
@@ -17,6 +21,12 @@
                 </div>
 
                 <input type="submit" value="fetch">
+
+            </form>
+
+            <form action="envioguardados" method="get">
+
+                <input type="submit" value="saveds">
 
             </form>
 

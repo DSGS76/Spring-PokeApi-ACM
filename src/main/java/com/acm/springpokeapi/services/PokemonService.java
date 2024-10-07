@@ -1,6 +1,7 @@
 package com.acm.springpokeapi.services;
 
 import com.acm.springpokeapi.models.PokemonDTO;
+import com.acm.springpokeapi.persistency.entity.Pokemon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -28,6 +29,21 @@ public class PokemonService {
     public PokemonService(@Autowired HttpClient client, @Autowired RestTemplate restTemplate) {
         this.client = client;
         this.restTemplate = restTemplate;
+    }
+
+    public Pokemon pokemon(String name) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        StringBuilder str = new StringBuilder();
+        str.append(pokeApiBaseUrl);
+        logger.info(pokeApiBaseUrl);
+        str.append("pokemon/");
+        str.append(name);
+
+        JsonElement request = restTemplate.getForObject(str.toString(), JsonElement.class);
+        Pokemon pokemon = gson.fromJson(request,Pokemon.class);
+        logger.info(pokemon.toString());
+        return pokemon;
+
     }
 
     public PokemonDTO fetchPokemon(String name) {

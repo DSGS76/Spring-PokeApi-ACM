@@ -1,32 +1,41 @@
 <?xml version="1.0" encoding="" ?>
 <html xmlns:th = "http://www.thymeleaf.org" lang="EN">
 
-<header>
-    <h2> Welcome to the pokémon fetcher </h2>
-</header>
+<head>
+    <link href="../static/css/pokemon.css" th:href="@{/css/pokemon.css}" rel="stylesheet" />
+    <!-- Varela Round -->
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+</head>
 
 <body>
-    <p>
-        <strong>Name:</strong>
-        <span th:text="${pokemon.name}"></span>
-    </p>
-    <p>
-        <strong>ID:</strong>
-        <span th:text="${pokemon.id}"></span>
-    </p>
-    <p>
-        <strong>Height:</strong>
-        <span th:text="${pokemon.height}"></span>
-        <span> centimeters</span>
-    </p>
-    <p>
-        <strong>Weight:</strong>
-        <span th:text="${pokemon.weight()}"></span>
-        <span> hectograms</span>
-    </p>
-    <form action="fetcher" method="get">
-        <input type="submit" value="back to the fetcher">
-    </form>
+    <div class="fetch-box">
+
+        <h2> Pokémon fetched </h2>
+
+        <div class="box-group">
+            <p>
+                <strong>Name:</strong>
+                <span th:text="${pokemon.name}"></span>
+            </p>
+            <p>
+                <strong>ID:</strong>
+                <span th:text="${pokemon.id}"></span>
+            </p>
+            <p>
+                <strong>Height:</strong>
+                <span th:text="${pokemon.height}"></span>
+                <span> centimeters</span>
+            </p>
+            <p>
+                <strong>Weight:</strong>
+                <span th:text="${pokemon.weight()}"></span>
+                <span> hectograms</span>
+            </p>
+        </div>
+        <form action="fetcher" method="get">
+            <input type="submit" value="back to the fetcher">
+        </form>
+    </div>
 </body>
 
 </html>
