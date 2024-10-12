@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    restart: always
+    container_name: postgres-spring-poke
+    environment:
+      - 'POSTGRES_DB=poke'
+      - 'POSTGRES_PASSWORD=12345'
+    ports:
+      - '5432:5432'
